@@ -1,3 +1,7 @@
-streamlit
-nltk
-sklearn
+Flask
+scikit-learn
+pandas
+numpy
+matplotlib
+gunicorn
+mlxtend
