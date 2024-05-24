@@ -1,75 +1,95 @@
-# Email/SMS Spam Classifier
+# SMS/Email Spam Classifier
 
-This is a simple web application for classifying email and SMS messages as spam or not spam using a machine learning model. The app is built with Streamlit and uses a pre-trained model to make predictions.
+This is a web application for classifying SMS or email messages as Spam or Not Spam using a trained machine learning model. The application is built with Flask and uses a pre-trained TF-IDF vectorizer and a machine learning model for predictions.
+
+## Table of Contents
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Project Structure](#project-structure)
+- [Example Messages](#example-messages)
+- [Screenshots](#screenshots)
+- [License](#license)
 
 ## Features
-
-- Input email or SMS text to classify as spam or not spam
-- Load example messages to test the classifier
-- Clear input field to reset the form
-- Provides feedback on the classification result
-
-## Screenshots
-
-![Screenshot 1](screenshots/Screenshot1.png)
-![Screenshot 2](screenshots/Screenshot2.png)
+- Classify SMS or email messages as Spam or Not Spam.
+- Load example messages for quick testing.
+- Clear the input message to start fresh.
 
 ## Installation
 
-To run this project locally, follow these steps:
-
 1. Clone the repository:
-    ```bash
+    ```sh
     git clone https://github.com/yourusername/spam-classifier.git
     cd spam-classifier
     ```
 
-2. Create and activate a virtual environment (optional but recommended):
-    ```bash
+2. Create and activate a virtual environment:
+    ```sh
     python -m venv venv
     source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
     ```
 
-3. Install the required dependencies:
-    ```bash
+3. Install the required packages:
+    ```sh
     pip install -r requirements.txt
     ```
 
-4. Ensure that you have NLTK's stopwords and punkt tokenizer downloaded:
-    ```python
-    import nltk
-    nltk.download('punkt')
-    nltk.download('stopwords')
+4. Ensure NLTK data is downloaded:
+    ```sh
+    python -m nltk.downloader punkt stopwords
     ```
 
-5. Run the Streamlit application:
-    ```bash
-    streamlit run app.py
-    ```
+5. Place the `vectorizer.pkl` and `model.pkl` files in the project directory.
 
 ## Usage
 
-1. Open your web browser and navigate to `http://localhost:8501`.
-2. Enter the email or SMS text you want to classify in the input box.
-3. Click on the `Predict` button to see if the message is classified as spam or not spam.
-4. Use the `Clear` button to reset the input field.
-5. You can also load example messages from the sidebar to see how they are classified.
+1. Run the Flask app:
+    ```sh
+    python app.py
+    ```
+
+2. Open your web browser and navigate to `http://127.0.0.1:5000`.
+
+3. Enter an SMS or email message in the input box and click "Predict" to classify the message as Spam or Not Spam.
+
+4. Use the "Load Example" buttons to test with predefined example messages.
+
+5. Click "Clear" to reset the input box.
 
 ## Project Structure
 
-- `app.py`: The main application script.
-- `vectorizer.pkl`: The saved TF-IDF vectorizer.
-- `model.pkl`: The pre-trained machine learning model.
-- `requirements.txt`: List of Python dependencies.
-- `README.md`: Project documentation.
+spam-classifier/
+│
+├── template/
+│ └── index.html # HTML template for the web interface
+│
+├── app.py # Main Flask application
+├── vectorizer.pkl # Pre-trained TF-IDF vectorizer
+├── model.pkl # Trained classification model
+├── requirements.txt # Python packages requirements
+├── screenshots/ # Folder containing screenshots
+├── README.md # Project README file
 
-## Dependencies
 
-- streamlit
-- scikit-learn
-- nltk
-- pickle
 
-You can install the dependencies using:
-```bash
-pip install -r requirements.txt
+## Example Messages
+
+1. **Example 1**: "Free entry in 2 a weekly competition to win FA Cup final tickets. Text FA to 87121 to receive entry question(std txt rate)"
+2. **Example 2**: "Nah I don't think he goes to usf, he lives around here though"
+3. **Example 3**: "WINNER!! As a valued network customer you have been selected to receive a £900 prize reward! To claim call 09061701461. Claim code KL341. Valid 12 hours only."
+
+## Screenshots
+
+### Home Page
+![Home Page](screenshots/home_page.png)
+
+### Prediction Example
+![Prediction Example](screenshots/prediction_example.png)
+
+### Example Message Loaded
+![Example Message Loaded](screenshots/example_message_loaded.png)
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
