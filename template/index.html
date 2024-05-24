@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email/SMS Spam Classifier</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('https://www.transparenttextures.com/patterns/clean-gray-paper.png');
+            background-size: cover;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #4CAF50;
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        label {
+            font-size: 18px;
+            color: #555;
+        }
+
+        textarea {
+            font-size: 18px;
+            height: 150px;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 24px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition-duration: 0.4s;
+        }
+
+        .button:hover {
+            background-color: white;
+            color: black;
+            border: 2px solid #4CAF50;
+        }
+
+        .result {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .result strong {
+            color: #4CAF50;
+        }
+
+        .example-messages {
+            margin-top: 20px;
+        }
+
+        .example-messages h2 {
+            color: #4CAF50;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .example-messages .button {
+            margin-top: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Email/SMS Spam Classifier</h1>
+        <form action="/" method="post">
+            <label for="input_sms">Enter the message:</label><br>
+            <textarea id="input_sms" name="input_sms" rows="4" cols="50">{{ input_sms }}</textarea><br><br>
+            <input type="submit" value="Predict" class="button">
+            <button type="submit" formaction="/clear" class="button">Clear</button>
+        </form>
+
+        <div class="example-messages">
+            <h2>Example Messages</h2>
+            <form method="post">
+                <button type="submit" formaction="/load_example/1" class="button">Load Example 1</button>
+                <button type="submit" formaction="/load_example/2" class="button">Load Example 2</button>
+                <button type="submit" formaction="/load_example/3" class="button">Load Example 3</button>
+            </form>
+        </div>
+
+        {% if classification is not none %}
+        <div class="result">
+            <h2>Result</h2>
+            <p>The entered text is classified as <strong>{{ classification }}</strong>.</p>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>
