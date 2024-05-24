@@ -85,10 +85,10 @@ spam-classifier/
 ![Home Page](screenshots/home_page.png)
 
 ### Prediction Example
-![Prediction Example](screenshots/prediction_example.png)
+![Prediction Example](screenshots/example_message_loaded.png)
 
 ### Example Message Loaded
-![Example Message Loaded](screenshots/example_message_loaded.png)
+![Example Message Loaded](screenshots/prediction_example.png)
 
 ## License
 
