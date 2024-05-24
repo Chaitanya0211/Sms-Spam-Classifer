@@ -11,8 +11,8 @@ This is a simple web application for classifying email and SMS messages as spam 
 
 ## Screenshots
 
-![Screenshot 1](Screenshot1.png)
-![Screenshot 2](Screenshot2.png)
+![Screenshot 1](screenshot/Screenshot1.png)
+![Screenshot 2](screenshot/Screenshot2.png)
 
 ## Installation
 
